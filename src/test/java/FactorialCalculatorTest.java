@@ -1,31 +1,28 @@
-//import Lesson_14.FactorialCalculator;
-//import org.junit.jupiter.api.Test;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertThrows;
-//
-//public class FactorialCalculatorTest {
-//
-//    @Test
-//    void testFactorialOfZero() {
-//        assertEquals(1, FactorialCalculator.calculateFactorial(0));
-//    }
-//
-//    @Test
-//    void testFactorialOfOne() {
-//        assertEquals(1, FactorialCalculator.calculateFactorial(1));
-//    }
-//
-//    @Test
-//    void testFactorialOfFive() {
-//        assertEquals(120, FactorialCalculator.calculateFactorial(5));
-//    }
-//
-//
-//    @Test
-//    void testNegativeInput() {
-//        assertThrows(IllegalArgumentException.class, () -> {
-//            FactorialCalculator.calculateFactorial(-5);
-//        });
-//    }
-//}
+import Lesson_14.FactorialCalculator;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.expectThrows;
+
+public class FactorialCalculatorTest {
+
+    @Test
+    public void testFactorialOfZero() {
+        assertEquals(FactorialCalculator.calculateFactorial(0), 1);
+    }
+
+    @Test
+    public void testFactorialOfOne() {
+        assertEquals(FactorialCalculator.calculateFactorial(1), 1);
+    }
+
+    @Test
+    public void testFactorialOfFive() {
+        assertEquals(FactorialCalculator.calculateFactorial(5), 120);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testNegativeInput() {
+        FactorialCalculator.calculateFactorial(-5);
+    }
+}
